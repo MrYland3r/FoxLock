@@ -18,4 +18,11 @@ function lockTabs(allowedTabIds) {
 
 function unlockTabs() {
   browser.tabs.onActivated.removeListener();
+
+  browser.notifications.create({
+    "type": "basic",
+    "iconUrl": browser.extension.getURL("icon.png"),
+    "title": "Tab Lock",
+    "message": "Time is over!"
+  });
 }
